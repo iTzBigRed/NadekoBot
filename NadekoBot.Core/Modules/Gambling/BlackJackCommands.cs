@@ -115,6 +115,10 @@ namespace NadekoBot.Modules.Gambling
                         cStr += "\n-\t" + string.Concat(c.Select(x => x.Last() + " "));
                         var full = $"{p.DiscordUser.ToString().TrimTo(20)} | Bet: {p.Bet} | Value: {p.GetHandValue()}";
                         if (bj.State == Blackjack.GameState.Ended)
+                            if bj.Player.GetHandValue()=bj.DealerGetHandValue()
+                            {
+                                full=full;   
+                            }
                         {
                             if (p.State == User.UserState.Lost)
                             {
